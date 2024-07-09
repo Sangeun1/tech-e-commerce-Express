@@ -14,6 +14,7 @@ import { Gutter } from '@/app/_components/Gutter'
 
 import classes from './index.module.scss'
 import Categories from '@/app/_components/Categories'
+import Promotion from '@/app/_components/Promotion'
 
 // Payload Cloud caches all files through Cloudflare, so we don't need Next.js to cache them as well
 // This means that we can turn off Next.js data caching and instead rely solely on the Cloudflare CDN
@@ -68,6 +69,7 @@ export default async function Page({ params: { slug = 'home' } }) {
             <Categories
               categories={categories}
             />
+            <Promotion />
           </Gutter>
         </section>
       ): (
