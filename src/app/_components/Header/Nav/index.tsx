@@ -10,6 +10,7 @@ import { CMSLink } from '../../Link'
 
 import classes from './index.module.scss'
 import { Button } from '../../Button'
+import SearchInput from '../../SearchInput'
 
 export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
   const navItems = header?.navItems || []
@@ -24,13 +25,17 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
         .filter(Boolean)
         .join(' ')}
     >
+      <SearchInput />
+      <p></p>
+      <p></p>
+      <p></p>
       {navItems.map(({ link }, i) => {
         return <CMSLink key={i} {...link} appearance="none" />
       })}
       {user && (
-        <CartLink />
+        <CartLink className={classes.text_color}/>
       )}
-      {user && <Link href="/account">Account</Link>}
+      {user && <Link href="/account" className={classes.text_color}>Account</Link>}
       {!user && (
         <Button
           el='link'
