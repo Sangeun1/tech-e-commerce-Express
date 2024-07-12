@@ -25,6 +25,7 @@ export interface Config {
     orders: Order;
     media: Media;
     categories: Category;
+    options: Option;
     users: User;
     redirects: Redirect;
     'payload-preferences': PayloadPreference;
@@ -404,6 +405,7 @@ export interface Product {
       )[]
     | null;
   categories?: (string | Category)[] | null;
+  options?: (string | Option)[] | null;
   relatedProducts?: (string | Product)[] | null;
   slug?: string | null;
   skipSync?: boolean | null;
@@ -415,6 +417,31 @@ export interface Product {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "options".
+ */
+export interface Option {
+  id: string;
+  name: string;
+  values?:
+    | {
+        value?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  parent?: (string | null) | Option;
+  breadcrumbs?:
+    | {
+        doc?: (string | null) | Option;
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

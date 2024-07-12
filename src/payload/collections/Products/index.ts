@@ -129,6 +129,15 @@ const Products: CollectionConfig = {
       },
     },
     {
+      name: 'options',
+      type: 'relationship',
+      relationTo: 'options',
+      hasMany: true,
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
       name: 'relatedProducts',
       type: 'relationship',
       relationTo: 'products',
