@@ -25,7 +25,7 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
         .filter(Boolean)
         .join(' ')}
     >
-      <SearchInput />
+      {/* <SearchInput /> */}
       <p></p>
       <p></p>
       <p></p>
